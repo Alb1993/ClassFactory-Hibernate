@@ -4,10 +4,16 @@
  */
 package entitats;
 
+import java.util.Date;
+
 /**
  *
  * @author FPShare
  */
 public abstract class Autonoma extends Aeronau {
-    
+
+    public Autonoma(int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado) {
+        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado);
+    }
+
 }

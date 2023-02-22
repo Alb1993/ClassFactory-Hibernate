@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entitats;
 
 import java.sql.Date;
@@ -11,9 +7,31 @@ import java.sql.Date;
  * @author FPShare
  */
 public class Pilot extends Soldat implements interficies.TesteableEntity {
-    
+
     private String clavePiloto;
     private float distanciaPilotadaKM;
+
+    public Pilot(String clavePiloto, float distanciaPilotadaKM, int idSoldado, int edad, String nombreClave, float versionTransmisor, java.util.Date fechaAlistamiento, boolean operativo) {
+        super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
+        this.clavePiloto = clavePiloto;
+        this.distanciaPilotadaKM = distanciaPilotadaKM;
+    }
+
+    public String getClavePiloto() {
+        return clavePiloto;
+    }
+
+    public void setClavePiloto(String clavePiloto) {
+        this.clavePiloto = clavePiloto;
+    }
+
+    public float getDistanciaPilotadaKM() {
+        return distanciaPilotadaKM;
+    }
+
+    public void setDistanciaPilotadaKM(float distanciaPilotadaKM) {
+        this.distanciaPilotadaKM = distanciaPilotadaKM;
+    }
 
     @Override
     public Integer getAtributIdentificador() {
@@ -60,5 +78,4 @@ public class Pilot extends Soldat implements interficies.TesteableEntity {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
 }

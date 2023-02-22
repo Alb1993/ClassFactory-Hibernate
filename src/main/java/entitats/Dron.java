@@ -9,12 +9,47 @@ import java.util.Date;
 /**
  *
  * @author FPShare
+ * @version 1.0
+ *
+ * Clase Dron que extiende de la Clase Autonoma y implementa la interfaz de
+ * TesteableEntity
  */
 public class Dron extends Autonoma implements interficies.TesteableEntity {
 
     private Date fechaProximoMantimiento;
     private boolean tieneArmas;
     private String tipoDeDron;
+
+    public Dron(Date fechaProximoMantimiento, boolean tieneArmas, String tipoDeDron, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado) {
+        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado);
+        this.fechaProximoMantimiento = fechaProximoMantimiento;
+        this.tieneArmas = tieneArmas;
+        this.tipoDeDron = tipoDeDron;
+    }
+
+    public Date getFechaProximoMantimiento() {
+        return fechaProximoMantimiento;
+    }
+
+    public void setFechaProximoMantimiento(Date fechaProximoMantimiento) {
+        this.fechaProximoMantimiento = fechaProximoMantimiento;
+    }
+
+    public boolean isTieneArmas() {
+        return tieneArmas;
+    }
+
+    public void setTieneArmas(boolean tieneArmas) {
+        this.tieneArmas = tieneArmas;
+    }
+
+    public String getTipoDeDron() {
+        return tipoDeDron;
+    }
+
+    public void setTipoDeDron(String tipoDeDron) {
+        this.tipoDeDron = tipoDeDron;
+    }
 
     @Override
     public Integer getAtributIdentificador() {
@@ -61,5 +96,4 @@ public class Dron extends Autonoma implements interficies.TesteableEntity {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
 }

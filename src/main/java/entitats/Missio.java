@@ -9,6 +9,10 @@ import java.util.Date;
 /**
  *
  * @author FPShare
+ * @version 1.0
+ *
+ * Clase para la generación de misiones, implementa la interficie
+ * TesteableEntity.
  */
 public class Missio implements interficies.TesteableEntity {
 
@@ -18,6 +22,63 @@ public class Missio implements interficies.TesteableEntity {
     private float recompensa;
     private Date fechaPublicacion;
     private boolean completada;
+
+    public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada) {
+        this.idMision = idMision;
+        this.tituloMision = tituloMision;
+        this.descripcion = descripcion;
+        this.recompensa = recompensa;
+        this.fechaPublicacion = fechaPublicacion;
+        this.completada = completada;
+    }
+
+    public int getIdMision() {
+        return idMision;
+    }
+
+    public void setIdMision(int idMision) {
+        this.idMision = idMision;
+    }
+
+    public String getTituloMision() {
+        return tituloMision;
+    }
+
+    public void setTituloMision(String tituloMision) {
+        this.tituloMision = tituloMision;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public float getRecompensa() {
+        return recompensa;
+    }
+
+    public void setRecompensa(float recompensa) {
+        this.recompensa = recompensa;
+    }
+
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public boolean isCompletada() {
+        return completada;
+    }
+
+    public void setCompletada(boolean completada) {
+        this.completada = completada;
+    }
 
     @Override
     public Integer getAtributIdentificador() {
@@ -64,5 +125,4 @@ public class Missio implements interficies.TesteableEntity {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
 }
