@@ -13,7 +13,7 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
     private float versionHerramientas;
     private int navesReparadas;
 
-    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas, int idSoldado, int edad, String nombreClave, float versionTransmisor, java.util.Date fechaAlistamiento, boolean operativo) {
+    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas, int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
         this.claveMecanico = claveMecanico;
         this.versionHerramientas = versionHerramientas;
@@ -46,47 +46,47 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
 
     @Override
     public Integer getAtributIdentificador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return idSoldado;
     }
 
     @Override
     public String getAtributString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return nombreClave;
     }
 
     @Override
     public Float getAtributFloat() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return versionHerramientas;
     }
 
     @Override
     public Date getAtributDate() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return fechaAlistamiento;
     }
 
     @Override
     public Boolean getAtributBoolean() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return operativo;
     }
 
     @Override
     public void setAtributString(String s) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.nombreClave = s;
     }
 
     @Override
     public void setAtributFloat(Float f) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.versionHerramientas = f;
     }
 
     @Override
     public void setAtributDate(Date d) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.fechaAlistamiento = d;
     }
 
     @Override
     public void setAtributBoolean(Boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.operativo = b;
     }
 
 }

@@ -5,7 +5,7 @@
 package entitats;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -13,12 +13,12 @@ import java.util.Date;
  */
 public abstract class Soldat implements Serializable{
     
-    private int idSoldado;
-    private int edad;
-    private String nombreClave;
-    private float versionTransmisor;
-    private Date fechaAlistamiento;
-    private boolean operativo;
+    protected int idSoldado;
+    protected int edad;
+    protected String nombreClave;
+    protected float versionTransmisor;
+    protected Date fechaAlistamiento;
+    protected boolean operativo;
 
     public Soldat(int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         this.idSoldado = idSoldado;
