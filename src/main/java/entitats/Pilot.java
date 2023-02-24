@@ -1,5 +1,6 @@
 package entitats;
 
+import jakarta.persistence.OneToOne;
 import java.sql.Date;
 
 /**
@@ -11,6 +12,9 @@ public class Pilot extends Soldat implements interficies.TesteableEntity {
     private String clavePiloto;
     private float distanciaPilotadaKM;
 
+    @OneToOne
+    private Pilotada pilotada;    
+    
     public Pilot(String clavePiloto, float distanciaPilotadaKM, int idSoldado, int edad, String nombreClave, float versionTransmisor, java.util.Date fechaAlistamiento, boolean operativo) {
         super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
         this.clavePiloto = clavePiloto;
