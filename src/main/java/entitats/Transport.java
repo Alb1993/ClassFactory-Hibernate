@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author FPShare
  */
 public class Transport extends Pilotada implements interficies.TesteableEntity, Serializable {
-    
+
     private float pesoCarga;
 
     public Transport(float pesoCarga, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
@@ -27,47 +27,47 @@ public class Transport extends Pilotada implements interficies.TesteableEntity, 
 
     @Override
     public Integer getAtributIdentificador() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return idNave;
     }
 
     @Override
     public String getAtributString() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return nombreNave;
     }
 
     @Override
     public Float getAtributFloat() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return kmRecorridos;
     }
 
     @Override
     public Date getAtributDate() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return fechaConstruccion;
     }
 
     @Override
     public Boolean getAtributBoolean() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return operativa;
     }
 
     @Override
     public void setAtributString(String s) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.nombreNave = s;
     }
 
     @Override
     public void setAtributFloat(Float f) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.kmRecorridos = f;
     }
 
     @Override
     public void setAtributDate(Date d) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.fechaConstruccion = d;
     }
 
     @Override
     public void setAtributBoolean(Boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.operativa = b;
     }
 
 }
