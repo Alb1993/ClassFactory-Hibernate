@@ -4,6 +4,8 @@
  */
 package entitats;
 
+import jakarta.persistence.OneToOne;
+
 /**
  *
  * @author FPShare
@@ -12,5 +14,8 @@ public abstract class Pilotada extends Aeronau {
 
     private String piloto;
     private int edad_piloto;
+    
+    @OneToOne
+    private Pilot pilot;
 
 }

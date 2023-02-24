@@ -4,10 +4,12 @@
  */
 package entitats;
 
+import java.io.Serializable;
+
 /**
  *
  * @author FPShare
  */
-public abstract class Autonoma extends Aeronau {
+public abstract class Autonoma extends Aeronau implements Serializable{
     
 }

@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author FPShare
  */
-public class Combat extends Pilotada implements interficies.TesteableEntity {
+public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
     private float versionArmamento;
 

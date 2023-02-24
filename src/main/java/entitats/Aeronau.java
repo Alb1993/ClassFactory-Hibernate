@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author FPShare
  */
-public abstract class Aeronau {
+public abstract class Aeronau implements Serializable{
 
     private int idNave;
     private String nombreNave;

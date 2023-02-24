@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author FPShare
  */
-public class Dron extends Autonoma implements interficies.TesteableEntity {
+public class Dron extends Autonoma implements interficies.TesteableEntity, Serializable {
 
     private Date fechaProximoMantimiento;
     private boolean tieneArmas;

@@ -4,6 +4,7 @@
  */
 package entitats;
 
+import jakarta.persistence.OneToOne;
 import java.sql.Date;
 
 /**
@@ -15,6 +16,9 @@ public class Pilot extends Soldat implements interficies.TesteableEntity {
     private String clavePiloto;
     private float distanciaPilotadaKM;
 
+    @OneToOne
+    private Pilotada pilotada;    
+    
     @Override
     public Integer getAtributIdentificador() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

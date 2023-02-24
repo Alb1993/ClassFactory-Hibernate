@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author FPShare
  */
-public abstract class Soldat {
+public abstract class Soldat implements Serializable{
     
     private int idSoldado;
     private  int edad;

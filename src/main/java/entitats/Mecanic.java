@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author FPShare
  */
-public class Mecanic extends Soldat implements interficies.TesteableEntity {
+public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable{
 
     private String claveMecanico;
     private float versionHerramientas;

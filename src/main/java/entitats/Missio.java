@@ -4,13 +4,14 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author FPShare
  */
-public class Missio implements interficies.TesteableEntity {
+public class Missio implements interficies.TesteableEntity, Serializable {
 
     private int idMision;
     private String tituloMision;
