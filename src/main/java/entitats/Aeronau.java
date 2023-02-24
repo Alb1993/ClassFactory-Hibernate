@@ -1,7 +1,7 @@
 package entitats;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -14,13 +14,13 @@ import java.util.List;
  */
 public abstract class Aeronau implements Serializable{
 
-    private int idNave;
-    private String nombreNave;
-    private float kmRecorridos;
-    private Date fechaConstruccion;
-    private boolean operativa;
-    private int estado;
-    private List<Missio> missions;
+    protected int idNave;
+    protected String nombreNave;
+    protected float kmRecorridos;
+    protected Date fechaConstruccion;
+    protected boolean operativa;
+    protected int estado;
+    protected List<Missio> missions;
 
     public Aeronau(int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
         this.idNave = idNave;
