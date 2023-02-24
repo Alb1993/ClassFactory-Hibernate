@@ -4,6 +4,7 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * Clase para la generación de misiones, implementa la interficie
  * TesteableEntity.
  */
-public class Missio implements interficies.TesteableEntity {
+public class Missio implements interficies.TesteableEntity, Serializable {
 
     private int idMision;
     private String tituloMision;
