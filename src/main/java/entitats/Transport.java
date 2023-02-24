@@ -1,5 +1,6 @@
 package entitats;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -7,8 +8,8 @@ import java.util.ArrayList;
  *
  * @author FPShare
  */
-public class Transport extends Pilotada implements interficies.TesteableEntity {
-
+public class Transport extends Pilotada implements interficies.TesteableEntity, Serializable {
+    
     private float pesoCarga;
 
     public Transport(float pesoCarga, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, java.util.Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {

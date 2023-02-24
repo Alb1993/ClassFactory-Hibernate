@@ -4,6 +4,7 @@
  */
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * Clase Dron que extiende de la Clase Autonoma y implementa la interfaz de
  * TesteableEntity
  */
-public class Dron extends Autonoma implements interficies.TesteableEntity {
+public class Dron extends Autonoma implements interficies.TesteableEntity, Serializable {
 
     private Date fechaProximoMantimiento;
     private boolean tieneArmas;
