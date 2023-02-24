@@ -13,7 +13,7 @@ import entitats.Pilotada;
 import entitats.Soldat;
 import interficies.TesteableFactory;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -81,7 +81,7 @@ public class ClassFactory implements TesteableFactory {
             int edad = faker.number().numberBetween(16,65);
             String nombre = faker.name().firstName();
             float versionTransmisor = faker.number().randomNumber();
-            Date fechaAlistamiento = faker.date().birthday();
+            Date fechaAlistamiento = (Date)faker.date().birthday();
             boolean operativo = rand.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,id,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
             mecanics.add(mecanic);
