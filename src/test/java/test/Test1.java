@@ -32,7 +32,7 @@ import org.junit.jupiter.api.TestInfo;
  *
  * @author manel
  * 
- * versió 22_23 1.0
+ * versió 22_23 1.1
  */
 public class Test1 {
     
@@ -273,7 +273,7 @@ public class Test1 {
             session.persist(p);
             session.persist(ap);
 
-            assertEquals(ap.getPilotAeronau().getId(), p.getId());
+            assertEquals(ap.getPilotAeronau().getAtributIdentificador(), p.getAtributIdentificador());
        
        } catch (Exception ex) {
              fail();
@@ -298,12 +298,12 @@ public class Test1 {
             v = factory.addMecanicsToPilotada(factory.mecanicsFactory(2),(Pilotada)factory.aeronauFactory(Transport.class));
             session.persist(v);
             
-            ve = (Pilotada)session.get(Transport.class, v.getId());
+            ve = (Pilotada)session.get(Transport.class, ((Transport)v).getAtributIdentificador());
             assertEquals(ve.getMecanics().size(), 2);
 
             v = factory.addMecanicsToPilotada(factory.mecanicsFactory(1),(Pilotada)factory.aeronauFactory(Combat.class));
             session.persist(v);
-            ve = (Pilotada)session.get(Combat.class, v.getId());
+            ve = (Pilotada)session.get(Combat.class, ((Combat)v).getAtributIdentificador());
             assertEquals(ve.getMecanics().size(), 1);
             
         } catch (Exception ex) {
@@ -361,14 +361,14 @@ public class Test1 {
         session.getTransaction().commit();
                
         //recuperem missio
-        Missio m1 = (Missio)session.get(Missio.class, missions.get(0).getId());
+        Missio m1 = (Missio)session.get(Missio.class, missions.get(0).getAtributIdentificador());
         session.refresh(m1);
         
         //verifiquem misió ---> aeronaus
         assertEquals((m1.getAeronaus().size() == 8), true);
         
         //recuperem aeronau
-        Aeronau a1 = (Aeronau)session.get(Aeronau.class, escuadrilla1.get(0).getId());
+        Dron a1 = (Dron)session.get(Dron.class, ((Dron)(escuadrilla1.get(0))).getAtributIdentificador());
         session.refresh(a1);
         
         //verifiquem aeronau ---> misió

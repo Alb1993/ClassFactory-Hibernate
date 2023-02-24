@@ -5,6 +5,7 @@
 package entitats;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -20,8 +21,8 @@ public class Dron extends Autonoma implements interficies.TesteableEntity {
     private boolean tieneArmas;
     private String tipoDeDron;
 
-    public Dron(Date fechaProximoMantimiento, boolean tieneArmas, String tipoDeDron, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado) {
-        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado);
+    public Dron(Date fechaProximoMantimiento, boolean tieneArmas, String tipoDeDron, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
+        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.fechaProximoMantimiento = fechaProximoMantimiento;
         this.tieneArmas = tieneArmas;
         this.tipoDeDron = tipoDeDron;

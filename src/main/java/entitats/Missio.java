@@ -5,6 +5,7 @@
 package entitats;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -22,14 +23,16 @@ public class Missio implements interficies.TesteableEntity {
     private float recompensa;
     private Date fechaPublicacion;
     private boolean completada;
+    private List<Aeronau> aeronaus;
 
-    public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada) {
+    public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada, List<Aeronau> aeronaus) {
         this.idMision = idMision;
         this.tituloMision = tituloMision;
         this.descripcion = descripcion;
         this.recompensa = recompensa;
         this.fechaPublicacion = fechaPublicacion;
         this.completada = completada;
+        this.aeronaus = aeronaus;
     }
 
     public int getIdMision() {
@@ -78,6 +81,14 @@ public class Missio implements interficies.TesteableEntity {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    public List<Aeronau> getAeronaus() {
+        return aeronaus;
+    }
+
+    public void setAeronaus(List<Aeronau> aeronaus) {
+        this.aeronaus = aeronaus;
     }
 
     @Override

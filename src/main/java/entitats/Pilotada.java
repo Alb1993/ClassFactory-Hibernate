@@ -1,5 +1,6 @@
 package entitats;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,21 +13,23 @@ import java.util.Date;
  */
 public abstract class Pilotada extends Aeronau {
 
-    private String piloto;
+    private Pilot pilotAeronau;
     private int edad_piloto;
+    private ArrayList<Mecanic> mecanics;
 
-    public Pilotada(String piloto, int edad_piloto, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado) {
-        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado);
-        this.piloto = piloto;
+    public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+        this.pilotAeronau = pilotAeronau;
         this.edad_piloto = edad_piloto;
+        this.mecanics = mecanics;
     }
 
-    public String getPiloto() {
-        return piloto;
+    public Pilot getPilotAeronau() {
+        return pilotAeronau;
     }
 
-    public void setPiloto(String piloto) {
-        this.piloto = piloto;
+    public void setPilotAeronau(Pilot pilotAeronau) {
+        this.pilotAeronau = pilotAeronau;
     }
 
     public int getEdad_piloto() {
@@ -35,6 +38,14 @@ public abstract class Pilotada extends Aeronau {
 
     public void setEdad_piloto(int edad_piloto) {
         this.edad_piloto = edad_piloto;
+    }
+
+    public ArrayList<Mecanic> getMecanics() {
+        return mecanics;
+    }
+
+    public void setMecanics(ArrayList<Mecanic> mecanics) {
+        this.mecanics = mecanics;
     }
 
 }

@@ -1,6 +1,7 @@
 package entitats;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,8 +11,8 @@ public class Transport extends Pilotada implements interficies.TesteableEntity {
 
     private float pesoCarga;
 
-    public Transport(float pesoCarga, String piloto, int edad_piloto, int idNave, String nombreNave, float kmRecorridos, java.util.Date fechaConstruccion, boolean operativa, int estado) {
-        super(piloto, edad_piloto, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado);
+    public Transport(float pesoCarga, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, java.util.Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+        super(pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.pesoCarga = pesoCarga;
     }
 
