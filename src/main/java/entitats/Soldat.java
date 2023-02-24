@@ -19,6 +19,8 @@ public abstract class Soldat implements Serializable{
     private float versionTransmisor;
     private Date fechaAlistamiento;
     private boolean operativo;
+    
+    public Soldat(){}
 
     public Soldat(int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         this.idSoldado = idSoldado;
