@@ -1,5 +1,6 @@
 package entitats;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Clase Aeronave para la creación de Aeronaves y después utilizarla en clases
  * inferiores.
  */
-public abstract class Aeronau {
+public abstract class Aeronau implements Serializable{
 
     private int idNave;
     private String nombreNave;

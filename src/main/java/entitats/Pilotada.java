@@ -1,5 +1,6 @@
 package entitats;
 
+import jakarta.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,6 +16,9 @@ public abstract class Pilotada extends Aeronau {
 
     private Pilot pilotAeronau;
     private int edad_piloto;
+    
+    @OneToOne
+    private Pilot pilot;
     private ArrayList<Mecanic> mecanics;
 
     public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
