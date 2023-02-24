@@ -73,7 +73,6 @@ public class ClassFactory implements TesteableFactory {
          * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
          */
         for(int i=0; i<elements; i++){
-
             String claveMecanico = faker.bothify("########");
             float versionHerramientas = faker.number().randomNumber();
             int navesReparadas = faker.number().numberBetween(0,999);
@@ -93,12 +92,39 @@ public class ClassFactory implements TesteableFactory {
 
     @Override
     public Missio missioFactory() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        /***
+         * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
+         */
+        Faker faker = new Faker();
+        Random rand = new Random();
+        SingleSession session = new SingleSession();
+        
+        /***
+         * Iniciamos una transaccion con SingleSession.
+         */
+        session.getSessio().beginTransaction();
+            
+        int idMision = (int)faker.number().randomNumber(8,true);
+        String tituloMision = faker.job().title(); 
+        String descripcion = faker.gameOfThrones().quote();
+        float recompensa=faker.number().randomNumber();
+        Date fechaPublicacion = (Date)faker.date().birthday();
+        boolean completada = rand.nextBoolean(); 
+        List<Aeronau> aeronaus = new ArrayList<Aeronau>();
+        Missio missio = new Missio(idMision,tituloMision,descripcion,recompensa,fechaPublicacion,completada,aeronaus);
+        session.getSessio().persist(missio);
+        session.getSessio().getTransaction().commit();
+        return missio;
     }
 
     @Override
     public List<Missio> missionsFactory(int elements) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Missio> missions = new ArrayList<Missio>();
+        for(int i=0; i<elements; i++){
+            Missio missio = missioFactory(); 
+            missions.add(missio);
+        }
+        return missions;
     }
 
     @Override
