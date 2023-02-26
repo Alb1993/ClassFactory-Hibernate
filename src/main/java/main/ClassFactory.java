@@ -225,9 +225,9 @@ public class ClassFactory implements TesteableFactory {
                         session.getSessio().getTransaction().commit();
                         return pilot;
             }else if(tipus == Combat.class){
-            Combat combat = (Combat)aeronauFactory(Combat.class);
-            return null;
-            
+                    Combat combat = (Combat)aeronauFactory(Combat.class);
+                    Soldat soldat = combat.getPilotAeronau();
+                    return soldat;
             }
                 
         
