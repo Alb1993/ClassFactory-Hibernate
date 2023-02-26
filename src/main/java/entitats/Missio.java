@@ -1,5 +1,12 @@
 package entitats;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -12,14 +19,19 @@ import java.util.List;
  * Clase para la generación de misiones, implementa la interficie
  * TesteableEntity.
  */
+@Entity
+@Table(name="missio")
 public class Missio implements interficies.TesteableEntity, Serializable {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idMision", nullable = false, unique = true)
     private int idMision;
     private String tituloMision;
     private String descripcion;
     private float recompensa;
     private Date fechaPublicacion;
     private boolean completada;
+    @OneToMany
     private List<Aeronau> aeronaus;
 
     public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada, List<Aeronau> aeronaus) {

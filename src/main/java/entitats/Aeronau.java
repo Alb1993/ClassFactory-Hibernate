@@ -1,5 +1,12 @@
 package entitats;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -12,14 +19,25 @@ import java.util.List;
  * Clase Aeronave para la creación de Aeronaves y después utilizarla en clases
  * inferiores.
  */
+@Entity
+@Table(name="aeronau")
 public abstract class Aeronau implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idNave", nullable = false, unique = true)
     protected int idNave;
+    @Column(name = "nombreNave")
     protected String nombreNave;
+    @Column(name = "kmrecorridos")
     protected float kmRecorridos;
+    @Column(name = "fechaconstruccion")
     protected Date fechaConstruccion;
+    @Column(name = "operativa")
     protected boolean operativa;
+    @Column(name = "estado")
     protected int estado;
+    @OneToMany
     protected List<Missio> missions;
 
     public Aeronau(int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {

@@ -6,6 +6,7 @@ package main;
 
 import com.github.javafaker.Faker;
 import entitats.Aeronau;
+import entitats.Combat;
 import entitats.Mecanic;
 import entitats.Missio;
 import entitats.Pilot;
@@ -22,7 +23,14 @@ import java.util.Random;
  * @author FPShare
  */
 public class ClassFactory implements TesteableFactory {
-
+    /***
+    * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
+    */
+    private static SingleSession session = new SingleSession();
+    private static Faker faker = new Faker();
+    private static Random rand = new Random();
+    
+    
     @Override
     public Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -46,12 +54,38 @@ public class ClassFactory implements TesteableFactory {
 
     @Override
     public Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        a.setPilotAeronau(p);
+        Aeronau aero = a;
+        return aero;
     }
 
     @Override
     public Aeronau aeronauFactory(Class<?> tipus) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            if(tipus == Combat.class){
+            /***
+             * Iniciamos una transaccion con SingleSession.
+             */
+            session.getSessio().beginTransaction();
+            float versionArmamento = faker.number().randomNumber();
+            Pilot pilotAeronau = (Pilot)soldatFactory(Pilot.class);
+            int edad_piloto = faker.number().numberBetween(16,65);
+            ArrayList<Mecanic> mecanics = new ArrayList<Mecanic>(); 
+            int idNave = faker.number().numberBetween(0, 999);
+            String nombreNave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
+            float kmRecorridos  = faker.number().randomNumber();
+            Date fechaConstruccion  = (Date)faker.date().birthday(); 
+            boolean operativa = rand.nextBoolean();
+            int estado = faker.number().numberBetween(1, 5);
+            ArrayList<Missio> missions =new ArrayList<Missio>();
+            Combat combat = new Combat(versionArmamento, pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+            /***
+             * Persistimos el objeto Mecanic i devolvemos el objeto.
+             */
+            session.getSessio().persist(combat);    
+            session.getSessio().getTransaction().commit();
+            return combat;
+            }
+        return null;
     }
 
     @Override
@@ -123,18 +157,80 @@ public class ClassFactory implements TesteableFactory {
         for(int i=0; i<elements; i++){
             Missio missio = missioFactory(); 
             missions.add(missio);
-        }
+        } 
         return missions;
     }
 
     @Override
     public List<Soldat> pilotsFactory(int elements) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Soldat> pilots = new ArrayList<Soldat>();
+        for(int i=0; i<elements; i++){
+           Pilot pilot = (Pilot) soldatFactory(Pilot.class);
+           pilots.add(pilot);
+        }
+        return pilots;
     }
 
     @Override
     public Soldat soldatFactory(Class<?> tipus) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
+        if(tipus == Mecanic.class){
+            /***
+             * Iniciamos una transaccion con SingleSession.
+             */
+            session.getSessio().beginTransaction();
+
+            /***
+             * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
+             */
+            String claveMecanico = faker.bothify("########");
+            float versionHerramientas = faker.number().randomNumber();
+            int navesReparadas = faker.number().numberBetween(0,999);
+            int id = (int)faker.number().randomNumber(8,true);
+            int edad = faker.number().numberBetween(16,65);
+            String nombre = faker.name().firstName();
+            float versionTransmisor = faker.number().randomNumber();
+            Date fechaAlistamiento = (Date)faker.date().birthday();
+            boolean operativo = rand.nextBoolean();
+            Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,id,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
+            /***
+             * Persistimos el objeto Mecanic i devolvemos el objeto.
+             */
+            session.getSessio().persist(mecanic);    
+            session.getSessio().getTransaction().commit();
+            return mecanic;
+        } 
+            else if(tipus == Pilot.class){
+                        /***
+                         * Iniciamos una transaccion con SingleSession.
+                         */
+                        //session.getSessio().beginTransaction();
+
+                        /***
+                         * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
+                         */
+                        String clavePiloto  = faker.bothify("########");
+                        float distanciaPilotadaKM = faker.number().randomNumber();
+                        int idSoldado = (int)faker.number().randomNumber(8,true);
+                        int edad = faker.number().numberBetween(16,65);
+                        String nombreClave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
+                        float versionTransmisor = faker.number().randomNumber();
+                        Date fechaAlistamiento = (Date)faker.date().birthday();
+                        boolean operativo = rand.nextBoolean();
+                        Pilot pilot = new Pilot(clavePiloto, distanciaPilotadaKM, idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
+                        /***
+                         * Persistimos el objeto Pilot i devolvemos el objeto.
+                         */
+                        session.getSessio().persist(pilot);
+                        session.getSessio().getTransaction().commit();
+                        return pilot;
+            }else if(tipus == Combat.class){
+            Combat combat = (Combat)aeronauFactory(Combat.class);
+            return null;
+            
+            }
+                
+        
+        return null;
+    }
 }

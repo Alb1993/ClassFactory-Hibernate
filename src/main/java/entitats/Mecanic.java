@@ -1,5 +1,7 @@
 package entitats;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -7,11 +9,14 @@ import java.sql.Date;
  *
  * @author FPShare
  */
+@Entity
+@Table(name="mecanic")
 public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable{
 
     private String claveMecanico;
     private float versionHerramientas;
     private int navesReparadas;
+    
 
     public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas, int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
@@ -19,7 +24,8 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
         this.versionHerramientas = versionHerramientas;
         this.navesReparadas = navesReparadas;
     }
-
+    
+    
     public String getClaveMecanico() {
         return claveMecanico;
     }

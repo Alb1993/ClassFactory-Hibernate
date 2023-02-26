@@ -6,11 +6,19 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.password">123456</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test1?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/m06uf2pracmd?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.connection.characterEncoding">utf8</property>
-        <mapping resource="mappings/Stock.hbm.xml"/>
-        <mapping resource="mappings/Customer.hbm.xml"/>
+        <mapping class="entitats.Aeronau"></mapping>
+        <mapping class="entitats.Autonoma"></mapping>
+        <mapping class="entitats.Combat"></mapping>
+        <mapping class="entitats.Dron"></mapping>
+        <mapping class="entitats.Mecanic"></mapping>
+        <mapping class="entitats.Missio"></mapping>
+        <mapping class="entitats.Pilot"></mapping>
+        <mapping class="entitats.Pilotada"></mapping>
+        <mapping class="entitats.Soldat"></mapping>
+        <mapping class="entitats.Transport"></mapping>                                                        
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,7 @@
 package entitats;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
  *
  * @author FPShare
  */
+
 public abstract class Autonoma extends Aeronau implements Serializable{
 
 

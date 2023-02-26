@@ -4,6 +4,12 @@
  */
 package entitats;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -11,8 +17,13 @@ import java.sql.Date;
  *
  * @author FPShare
  */
+@Entity
+@Table(name="soldat")
 public abstract class Soldat implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idSoldado", nullable = false, unique = true)
     protected int idSoldado;
     protected int edad;
     protected String nombreClave;

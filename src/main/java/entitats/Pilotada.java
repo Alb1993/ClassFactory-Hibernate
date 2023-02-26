@@ -1,6 +1,9 @@
 package entitats;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -12,13 +15,18 @@ import java.sql.Date;
  * Clase Pilotada para crear aeronaves pilotadas por humanos, extiende de
  * Aeronave.
  */
+@Entity
+@Table(name="pilotada")
 public abstract class Pilotada extends Aeronau {
-
-    private Pilot pilotAeronau;
+    
     private int edad_piloto;
     
     @OneToOne
-    private Pilot pilot;
+    private Aeronau aeronau; 
+    
+    @OneToOne
+    private Pilot pilotAeronau;
+    @OneToMany
     private ArrayList<Mecanic> mecanics;
 
     public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {

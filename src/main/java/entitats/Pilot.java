@@ -1,12 +1,16 @@
 package entitats;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.sql.Date;
 
 /**
  *
  * @author FPShare
  */
+@Entity
+@Table(name="pilot")
 public class Pilot extends Soldat implements interficies.TesteableEntity {
 
     private String clavePiloto;

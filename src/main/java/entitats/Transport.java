@@ -1,5 +1,7 @@
 package entitats;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import java.util.ArrayList;
  *
  * @author FPShare
  */
+@Entity
+@Table(name="transport")
 public class Transport extends Pilotada implements interficies.TesteableEntity, Serializable {
 
     private float pesoCarga;
