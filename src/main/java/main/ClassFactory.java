@@ -55,13 +55,13 @@ public class ClassFactory implements TesteableFactory {
     @Override
     public Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) throws Exception {
         a.setPilotAeronau(p);
-        Aeronau aero = a;
-        return aero;
+        return a;
     }
 
     @Override
     public Aeronau aeronauFactory(Class<?> tipus) {
             if(tipus == Combat.class){
+      
             /***
              * Iniciamos una transaccion con SingleSession.
              */
@@ -155,7 +155,7 @@ public class ClassFactory implements TesteableFactory {
     public List<Missio> missionsFactory(int elements) {
         List<Missio> missions = new ArrayList<Missio>();
         for(int i=0; i<elements; i++){
-            Missio missio = missioFactory(); 
+            Missio missio = (Missio) missioFactory(); 
             missions.add(missio);
         } 
         return missions;
