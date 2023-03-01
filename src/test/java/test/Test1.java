@@ -32,7 +32,7 @@ import org.junit.jupiter.api.TestInfo;
  *
  * @author manel
  * 
- * versió 22_23 1.1
+ * versió 22_23 1.2
  */
 public class Test1 {
     
@@ -200,8 +200,8 @@ public class Test1 {
        System.out.println("TEST: " + testInfo.getDisplayName());
        
        //dos objectes "random" han de tenir atributs diferents
-       Pilot o1 = (Pilot) factory.soldatFactory(Combat.class);
-       Pilot o2 = (Pilot) factory.soldatFactory(Combat.class);
+       Pilot o1 = (Pilot) factory.soldatFactory(Pilot.class);
+       Pilot o2 = (Pilot) factory.soldatFactory(Pilot.class);
        assertTrue(! o1.getAtributString().equals(o2.getAtributString()));
        assertTrue(! o1.getAtributFloat().equals(o2.getAtributFloat()));
        assertTrue(! o1.getAtributDate().equals(o2.getAtributDate()));
