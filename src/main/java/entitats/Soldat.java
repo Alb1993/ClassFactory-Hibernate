@@ -9,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -18,7 +17,6 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
-@Table(name="soldat")
 public abstract class Soldat implements Serializable{
     
     @Id

@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -17,7 +16,6 @@ import java.sql.Date;
  * Aeronave.
  */
 @Entity
-@Table(name="pilotada")
 public abstract class Pilotada extends Aeronau {
     @Column(name="edad_piloto")
     private int edad_piloto;

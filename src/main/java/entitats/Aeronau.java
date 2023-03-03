@@ -7,8 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -22,7 +20,6 @@ import java.util.List;
  * inferiores.
  */
 @Entity
-@Table(name="aeronau")
 public abstract class Aeronau implements Serializable{
 
     @Id

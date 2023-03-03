@@ -1,7 +1,6 @@
 package entitats;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
  * TesteableEntity
  */
 @Entity
-@Table(name="dron")
 public class Dron extends Autonoma implements interficies.TesteableEntity, Serializable {
 
     private Date fechaProximoMantimiento;

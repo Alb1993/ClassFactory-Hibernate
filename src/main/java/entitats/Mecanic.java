@@ -1,7 +1,6 @@
 package entitats;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -10,7 +9,6 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
-@Table(name="mecanic")
 public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable{
 
     private String claveMecanico;

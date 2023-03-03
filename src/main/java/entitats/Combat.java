@@ -2,8 +2,6 @@ package entitats;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
  * extiende de la clase pilotada y implementa la interficie de TesteableEntity.
  */
 @Entity
-@Table(name="combat")
 public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
     @Column(name="versionArmamento")
