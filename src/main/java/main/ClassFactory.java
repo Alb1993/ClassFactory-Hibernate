@@ -7,6 +7,7 @@ package main;
 import com.github.javafaker.Faker;
 import entitats.Aeronau;
 import entitats.Combat;
+import entitats.Dron;
 import entitats.Mecanic;
 import entitats.Missio;
 import entitats.Pilot;
@@ -73,25 +74,25 @@ public class ClassFactory implements TesteableFactory {
             int edad_piloto = faker.number().numberBetween(16,65);
             ArrayList<Mecanic> mecanics = null;
             String nombreNave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
+            String nombre = faker.bothify("####");
             float kmRecorridos  = faker.number().randomNumber();
             Date fechaConstruccion  = utils.convertirSqlDate(faker.date().birthday());
+            Date fecha = utils.convertirSqlDate(faker.date().birthday());
             boolean operativa = rand.nextBoolean();
+            boolean bool = rand.nextBoolean();
             int estado = faker.number().numberBetween(1, 5);
             ArrayList<Missio> missions =null;
         
             if(tipus == Combat.class){
-            /***
-             * Iniciamos una transaccion con SingleSession.
-             */
             Combat combat = new Combat(versionArmamento, pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
-            /***
-             * Persistimos el objeto Mecanic i devolvemos el objeto.
-             */
             return combat;
             }
             else if(tipus == Transport.class){
             Transport transport = new Transport(versionArmamento, pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
             return transport;
+            }else if(tipus == Dron.class){
+            Dron dron = new Dron(fechaConstruccion,operativa,nombreNave,nombre,versionArmamento,fecha,bool, estado, missions);
+            return dron;
             }
         return null;
     }
@@ -117,10 +118,10 @@ public class ClassFactory implements TesteableFactory {
             int edad = faker.number().numberBetween(16,65);
             String nombre = faker.name().firstName();
             float versionTransmisor = faker.number().randomNumber();
-            Date fechaAlistamiento = utils.convertirSqlDate((Date)faker.date().birthday());
+            Date fechaAlistamiento = utils.convertirSqlDate(faker.date().birthday());
             boolean operativo = rand.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
-            mecanics.add(mecanic);        
+            mecanics.add((Soldat) mecanic);        
         }
         return mecanics;
     }
