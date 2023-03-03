@@ -12,6 +12,7 @@ import entitats.Missio;
 import entitats.Pilot;
 import entitats.Pilotada;
 import entitats.Soldat;
+import entitats.Transport;
 import interficies.TesteableFactory;
 import java.util.ArrayList;
 import java.sql.Date;
@@ -27,14 +28,19 @@ public class ClassFactory implements TesteableFactory {
     /***
     * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
     */
-    private static Faker faker = new Faker();
-    private static Random rand = new Random();
+    private Faker faker = new Faker();
+    private Random rand = new Random();
     
     public ClassFactory(){};
     
     @Override
     public Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Mecanic> mecanics = new ArrayList<>();
+        for(Soldat soldat: lo){
+            mecanics.add((Mecanic)soldat);
+        }
+        p.setMecanics(mecanics);
+        return (Aeronau) p;
     }
 
     @Override
@@ -61,11 +67,6 @@ public class ClassFactory implements TesteableFactory {
 
     @Override
     public Aeronau aeronauFactory(Class<?> tipus) {
-            if(tipus == Combat.class){
-      
-            /***
-             * Iniciamos una transaccion con SingleSession.
-             */
             float versionArmamento = faker.number().randomNumber();
             //Pilot pilotAeronau = (Pilot)soldatFactory(Pilot.class);
             Pilot pilotAeronau = null;
@@ -76,12 +77,21 @@ public class ClassFactory implements TesteableFactory {
             Date fechaConstruccion  = utils.convertirSqlDate(faker.date().birthday());
             boolean operativa = rand.nextBoolean();
             int estado = faker.number().numberBetween(1, 5);
-            ArrayList<Missio> missions =new ArrayList<>();
+            ArrayList<Missio> missions =null;
+        
+            if(tipus == Combat.class){
+            /***
+             * Iniciamos una transaccion con SingleSession.
+             */
             Combat combat = new Combat(versionArmamento, pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
             /***
              * Persistimos el objeto Mecanic i devolvemos el objeto.
              */
             return combat;
+            }
+            else if(tipus == Transport.class){
+            Transport transport = new Transport(versionArmamento, pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+            return transport;
             }
         return null;
     }
@@ -91,9 +101,7 @@ public class ClassFactory implements TesteableFactory {
         /***
          * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
          */
-        Faker faker = new Faker();
-        Random rand = new Random();
-        List<Soldat> mecanics = new ArrayList<Soldat>();
+        List<Soldat> mecanics = null;
         
         /***
          * Iniciamos una transaccion con SingleSession.
@@ -109,7 +117,7 @@ public class ClassFactory implements TesteableFactory {
             int edad = faker.number().numberBetween(16,65);
             String nombre = faker.name().firstName();
             float versionTransmisor = faker.number().randomNumber();
-            Date fechaAlistamiento = (Date)faker.date().birthday();
+            Date fechaAlistamiento = utils.convertirSqlDate((Date)faker.date().birthday());
             boolean operativo = rand.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
             mecanics.add(mecanic);        
