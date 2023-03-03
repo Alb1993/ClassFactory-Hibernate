@@ -26,7 +26,6 @@ public class ClassFactory implements TesteableFactory {
     /***
     * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
     */
-    private static SingleSession session = new SingleSession();
     private static Faker faker = new Faker();
     private static Random rand = new Random();
     
@@ -65,7 +64,6 @@ public class ClassFactory implements TesteableFactory {
             /***
              * Iniciamos una transaccion con SingleSession.
              */
-            session.getSessio().beginTransaction();
             float versionArmamento = faker.number().randomNumber();
             Pilot pilotAeronau = (Pilot)soldatFactory(Pilot.class);
             int edad_piloto = faker.number().numberBetween(16,65);
@@ -73,7 +71,7 @@ public class ClassFactory implements TesteableFactory {
             int idNave = faker.number().numberBetween(0, 999);
             String nombreNave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
             float kmRecorridos  = faker.number().randomNumber();
-            Date fechaConstruccion  = (Date)faker.date().birthday(); 
+            Date fechaConstruccion  = utils.convertirSqlDate(faker.date().birthday());
             boolean operativa = rand.nextBoolean();
             int estado = faker.number().numberBetween(1, 5);
             ArrayList<Missio> missions =new ArrayList<Missio>();
@@ -81,8 +79,6 @@ public class ClassFactory implements TesteableFactory {
             /***
              * Persistimos el objeto Mecanic i devolvemos el objeto.
              */
-            session.getSessio().persist(combat);    
-            session.getSessio().getTransaction().commit();
             return combat;
             }
         return null;
@@ -96,12 +92,10 @@ public class ClassFactory implements TesteableFactory {
         Faker faker = new Faker();
         Random rand = new Random();
         List<Soldat> mecanics = new ArrayList<Soldat>();
-        SingleSession session = new SingleSession();
         
         /***
          * Iniciamos una transaccion con SingleSession.
          */
-        session.getSessio().beginTransaction();
             
         /***
          * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
@@ -117,10 +111,8 @@ public class ClassFactory implements TesteableFactory {
             Date fechaAlistamiento = (Date)faker.date().birthday();
             boolean operativo = rand.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,id,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
-            mecanics.add(mecanic);
-            session.getSessio().persist(mecanic);          
+            mecanics.add(mecanic);        
         }
-        session.getSessio().getTransaction().commit();
         return mecanics;
     }
 
@@ -131,23 +123,19 @@ public class ClassFactory implements TesteableFactory {
          */
         Faker faker = new Faker();
         Random rand = new Random();
-        SingleSession session = new SingleSession();
         
         /***
          * Iniciamos una transaccion con SingleSession.
          */
-        session.getSessio().beginTransaction();
             
-        int idMision = (int)faker.number().randomNumber(8,true);
+        int idMision = 1;
         String tituloMision = faker.job().title(); 
         String descripcion = faker.gameOfThrones().quote();
         float recompensa=faker.number().randomNumber();
-        Date fechaPublicacion = (Date)faker.date().birthday();
+        Date fechaPublicacion = utils.convertirSqlDate(faker.date().birthday());
         boolean completada = rand.nextBoolean(); 
         List<Aeronau> aeronaus = new ArrayList<Aeronau>();
         Missio missio = new Missio(idMision,tituloMision,descripcion,recompensa,fechaPublicacion,completada,aeronaus);
-        session.getSessio().persist(missio);
-        session.getSessio().getTransaction().commit();
         return missio;
     }
 
@@ -178,7 +166,6 @@ public class ClassFactory implements TesteableFactory {
             /***
              * Iniciamos una transaccion con SingleSession.
              */
-            session.getSessio().beginTransaction();
 
             /***
              * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
@@ -186,43 +173,38 @@ public class ClassFactory implements TesteableFactory {
             String claveMecanico = faker.bothify("########");
             float versionHerramientas = faker.number().randomNumber();
             int navesReparadas = faker.number().numberBetween(0,999);
-            int id = (int)faker.number().randomNumber(8,true);
+            int id = faker.number().numberBetween(0, 999);
             int edad = faker.number().numberBetween(16,65);
             String nombre = faker.name().firstName();
             float versionTransmisor = faker.number().randomNumber();
-            Date fechaAlistamiento = (Date)faker.date().birthday();
+            Date fechaAlistamiento = utils.convertirSqlDate(faker.date().birthday());
             boolean operativo = rand.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas,navesReparadas,id,edad,nombre,versionTransmisor,fechaAlistamiento,operativo);
             /***
              * Persistimos el objeto Mecanic i devolvemos el objeto.
              */
-            session.getSessio().persist(mecanic);    
-            session.getSessio().getTransaction().commit();
             return mecanic;
         } 
             else if(tipus == Pilot.class){
                         /***
                          * Iniciamos una transaccion con SingleSession.
                          */
-                        //session.getSessio().beginTransaction();
 
                         /***
                          * Generamos atributos random, los añadimos a un objeto mecanico y despues añadimos el mecanico a nuestro Array de Soldados.
                          */
                         String clavePiloto  = faker.bothify("########");
                         float distanciaPilotadaKM = faker.number().randomNumber();
-                        int idSoldado = (int)faker.number().randomNumber(8,true);
+                        int idSoldado = faker.number().numberBetween(0, 999);
                         int edad = faker.number().numberBetween(16,65);
                         String nombreClave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
                         float versionTransmisor = faker.number().randomNumber();
-                        Date fechaAlistamiento = (Date)faker.date().birthday();
+                        Date fechaAlistamiento = utils.convertirSqlDate(faker.date().birthday());
                         boolean operativo = rand.nextBoolean();
                         Pilot pilot = new Pilot(clavePiloto, distanciaPilotadaKM, idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
                         /***
                          * Persistimos el objeto Pilot i devolvemos el objeto.
                          */
-                        session.getSessio().persist(pilot);
-                        session.getSessio().getTransaction().commit();
                         return pilot;
             }else if(tipus == Combat.class){
                     Combat combat = (Combat)aeronauFactory(Combat.class);

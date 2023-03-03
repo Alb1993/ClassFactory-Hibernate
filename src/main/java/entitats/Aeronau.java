@@ -27,16 +27,22 @@ public abstract class Aeronau implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idNave", nullable = false, unique = true)
     protected int idNave;
+    
     @Column(name = "nombreNave")
     protected String nombreNave;
+    
     @Column(name = "kmrecorridos")
     protected float kmRecorridos;
+    
     @Column(name = "fechaconstruccion")
     protected Date fechaConstruccion;
+    
     @Column(name = "operativa")
     protected boolean operativa;
+    
     @Column(name = "estado")
     protected int estado;
+    
     @OneToMany
     protected List<Missio> missions;
 

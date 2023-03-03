@@ -26,11 +26,13 @@ public class Missio implements interficies.TesteableEntity, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMision", nullable = false, unique = true)
     private int idMision;
+    
     private String tituloMision;
     private String descripcion;
     private float recompensa;
     private Date fechaPublicacion;
     private boolean completada;
+    
     @OneToMany
     private List<Aeronau> aeronaus;
 

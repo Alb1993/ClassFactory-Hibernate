@@ -1,5 +1,6 @@
 package entitats;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -19,10 +20,9 @@ import java.util.ArrayList;
 @Table(name="combat")
 public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
+    @Column(name="versionArmamento")
     private float versionArmamento;
     
-    @OneToOne
-    private Pilotada pilotada;
 
     public Combat(float versionArmamento, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
         super(pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);

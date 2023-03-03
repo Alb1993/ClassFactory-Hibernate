@@ -16,8 +16,8 @@ public class Pilot extends Soldat implements interficies.TesteableEntity {
     private String clavePiloto;
     private float distanciaPilotadaKM;
 
-    @OneToOne
-    private Pilotada pilotada;    
+    //@OneToOne
+    //private Pilotada pilotada;    
     
     public Pilot(String clavePiloto, float distanciaPilotadaKM, int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);

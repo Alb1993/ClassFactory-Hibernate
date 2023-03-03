@@ -1,5 +1,6 @@
 package entitats;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -18,11 +19,8 @@ import java.sql.Date;
 @Entity
 @Table(name="pilotada")
 public abstract class Pilotada extends Aeronau {
-    
+    @Column(name="edad_piloto")
     private int edad_piloto;
-    
-    @OneToOne
-    private Aeronau aeronau; 
     
     @OneToOne
     private Pilot pilotAeronau;
