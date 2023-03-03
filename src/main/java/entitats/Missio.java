@@ -1,10 +1,12 @@
 package entitats;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
@@ -33,7 +35,7 @@ public class Missio implements interficies.TesteableEntity, Serializable {
     private Date fechaPublicacion;
     private boolean completada;
     
-    @OneToMany
+   @ManyToMany(cascade = {CascadeType.ALL})
     private List<Aeronau> aeronaus;
 
     public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada, List<Aeronau> aeronaus) {

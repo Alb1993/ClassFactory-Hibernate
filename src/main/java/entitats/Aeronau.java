@@ -1,10 +1,12 @@
 package entitats;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
@@ -43,7 +45,7 @@ public abstract class Aeronau implements Serializable{
     @Column(name = "estado")
     protected int estado;
     
-    @OneToMany
+   @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "aeronaus")
     protected List<Missio> missions;
 
     public Aeronau(int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
