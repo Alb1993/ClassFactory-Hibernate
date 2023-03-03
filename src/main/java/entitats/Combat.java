@@ -2,7 +2,6 @@ package entitats;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
@@ -17,13 +16,14 @@ import java.util.ArrayList;
  * extiende de la clase pilotada y implementa la interficie de TesteableEntity.
  */
 @Entity
+@Table
 public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
     private float versionArmamento;
     
 
-    public Combat(float versionArmamento, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
-        super(pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+    public Combat(float versionArmamento, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+        super(pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.versionArmamento = versionArmamento;
     }
 

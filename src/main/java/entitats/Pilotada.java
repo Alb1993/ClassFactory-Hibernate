@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -26,8 +25,8 @@ public abstract class Pilotada extends Aeronau {
     @OneToMany
     private ArrayList<Mecanic> mecanics;
 
-    public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
-        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+    public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+        super(nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.pilotAeronau = pilotAeronau;
         this.edad_piloto = edad_piloto;
         this.mecanics = mecanics;

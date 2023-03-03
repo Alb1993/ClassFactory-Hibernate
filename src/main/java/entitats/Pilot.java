@@ -1,8 +1,8 @@
 package entitats;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -10,7 +10,8 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
-public class Pilot extends Soldat implements interficies.TesteableEntity {
+@Table
+public class Pilot extends Soldat implements interficies.TesteableEntity,Serializable {
 
     private String clavePiloto;
     private float distanciaPilotadaKM;
@@ -18,10 +19,11 @@ public class Pilot extends Soldat implements interficies.TesteableEntity {
     //@OneToOne
     //private Pilotada pilotada;    
     
-    public Pilot(String clavePiloto, float distanciaPilotadaKM, int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
-        super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
+    public Pilot(String clavePiloto, float distanciaPilotadaKM, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
+        super(edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
         this.clavePiloto = clavePiloto;
         this.distanciaPilotadaKM = distanciaPilotadaKM;
+
     }
 
     public String getClavePiloto() {

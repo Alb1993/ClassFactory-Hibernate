@@ -15,14 +15,15 @@ import java.util.List;
  * TesteableEntity
  */
 @Entity
+@Table
 public class Dron extends Autonoma implements interficies.TesteableEntity, Serializable {
 
     private Date fechaProximoMantimiento;
     private boolean tieneArmas;
     private String tipoDeDron;
 
-    public Dron(Date fechaProximoMantimiento, boolean tieneArmas, String tipoDeDron, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
-        super(idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+    public Dron(Date fechaProximoMantimiento, boolean tieneArmas, String tipoDeDron, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
+        super(nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.fechaProximoMantimiento = fechaProximoMantimiento;
         this.tieneArmas = tieneArmas;
         this.tipoDeDron = tipoDeDron;

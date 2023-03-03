@@ -1,11 +1,16 @@
+
+
 package entitats;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
@@ -20,10 +25,11 @@ import java.util.List;
  * TesteableEntity.
  */
 @Entity
+@Table
 public class Missio implements interficies.TesteableEntity, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idmision", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private int idMision;
     
     private String tituloMision;
@@ -32,25 +38,16 @@ public class Missio implements interficies.TesteableEntity, Serializable {
     private Date fechaPublicacion;
     private boolean completada;
     
-    @OneToMany
+    @ManyToMany(cascade = {CascadeType.ALL})
     private List<Aeronau> aeronaus;
 
-    public Missio(int idMision, String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada, List<Aeronau> aeronaus) {
-        this.idMision = idMision;
+    public Missio(String tituloMision, String descripcion, float recompensa, Date fechaPublicacion, boolean completada, List<Aeronau> aeronaus) {
         this.tituloMision = tituloMision;
         this.descripcion = descripcion;
         this.recompensa = recompensa;
         this.fechaPublicacion = fechaPublicacion;
         this.completada = completada;
         this.aeronaus = aeronaus;
-    }
-
-    public int getIdMision() {
-        return idMision;
-    }
-
-    public void setIdMision(int idMision) {
-        this.idMision = idMision;
     }
 
     public String getTituloMision() {

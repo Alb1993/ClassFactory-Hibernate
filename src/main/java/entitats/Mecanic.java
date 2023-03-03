@@ -10,6 +10,7 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
+@Table
 public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable{
 
     private String claveMecanico;
@@ -17,8 +18,8 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
     private int navesReparadas;
     
 
-    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas, int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
-        super(idSoldado, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
+    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas,int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
+        super(edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
         this.claveMecanico = claveMecanico;
         this.versionHerramientas = versionHerramientas;
         this.navesReparadas = navesReparadas;

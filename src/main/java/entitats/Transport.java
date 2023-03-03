@@ -11,12 +11,13 @@ import java.util.ArrayList;
  * @author FPShare
  */
 @Entity
+@Table
 public class Transport extends Pilotada implements interficies.TesteableEntity, Serializable {
 
     private float pesoCarga;
 
-    public Transport(float pesoCarga, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
-        super(pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
+    public Transport(float pesoCarga, Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+        super(pilotAeronau, edad_piloto, mecanics, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.pesoCarga = pesoCarga;
     }
 

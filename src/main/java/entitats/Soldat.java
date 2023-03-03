@@ -9,7 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -18,11 +19,12 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Soldat implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idSoldado", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     protected int idSoldado;
     protected int edad;
     protected String nombreClave;
@@ -30,21 +32,12 @@ public abstract class Soldat implements Serializable{
     protected Date fechaAlistamiento;
     protected boolean operativo;
 
-    public Soldat(int idSoldado, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
-        this.idSoldado = idSoldado;
+    public Soldat(int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         this.edad = edad;
         this.nombreClave = nombreClave;
         this.versionTransmisor = versionTransmisor;
         this.fechaAlistamiento = fechaAlistamiento;
         this.operativo = operativo;
-    }
-
-    public int getIdSoldado() {
-        return idSoldado;
-    }
-
-    public void setIdSoldado(int idSoldado) {
-        this.idSoldado = idSoldado;
     }
 
     public int getEdad() {

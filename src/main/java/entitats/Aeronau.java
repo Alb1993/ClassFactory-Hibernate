@@ -1,12 +1,14 @@
 package entitats;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -20,11 +22,12 @@ import java.util.List;
  * inferiores.
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Aeronau implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idNave", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     protected int idNave;
     
     protected String nombreNave;
@@ -37,25 +40,16 @@ public abstract class Aeronau implements Serializable{
     
     protected int estado;
     
-    @OneToMany
+   @ManyToMany(cascade = {CascadeType.ALL})
     protected List<Missio> missions;
 
-    public Aeronau(int idNave, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
-        this.idNave = idNave;
+    public Aeronau(String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
         this.nombreNave = nombreNave;
         this.kmRecorridos = kmRecorridos;
         this.fechaConstruccion = fechaConstruccion;
         this.operativa = operativa;
         this.estado = estado;
         this.missions = missions;
-    }
-
-    public int getIdNave() {
-        return idNave;
-    }
-
-    public void setIdNave(int idNave) {
-        this.idNave = idNave;
     }
 
     public String getNombreNave() {
