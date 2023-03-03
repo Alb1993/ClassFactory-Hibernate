@@ -17,10 +17,8 @@ import java.util.ArrayList;
  * extiende de la clase pilotada y implementa la interficie de TesteableEntity.
  */
 @Entity
-@Table(name="combat")
 public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
-    @Column(name="versionArmamento")
     private float versionArmamento;
     
 

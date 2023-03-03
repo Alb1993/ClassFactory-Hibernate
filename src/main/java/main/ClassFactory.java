@@ -65,16 +65,17 @@ public class ClassFactory implements TesteableFactory {
              * Iniciamos una transaccion con SingleSession.
              */
             float versionArmamento = faker.number().randomNumber();
-            Pilot pilotAeronau = (Pilot)soldatFactory(Pilot.class);
+            //Pilot pilotAeronau = (Pilot)soldatFactory(Pilot.class);
+            Pilot pilotAeronau = null;
             int edad_piloto = faker.number().numberBetween(16,65);
-            ArrayList<Mecanic> mecanics = new ArrayList<Mecanic>(); 
+            ArrayList<Mecanic> mecanics = new ArrayList<>(); 
             int idNave = faker.number().numberBetween(0, 999);
             String nombreNave = faker.bothify("####") + "-" + faker.letterify("#####") + "-" + faker.numerify("#####");
             float kmRecorridos  = faker.number().randomNumber();
             Date fechaConstruccion  = utils.convertirSqlDate(faker.date().birthday());
             boolean operativa = rand.nextBoolean();
             int estado = faker.number().numberBetween(1, 5);
-            ArrayList<Missio> missions =new ArrayList<Missio>();
+            ArrayList<Missio> missions =new ArrayList<>();
             Combat combat = new Combat(versionArmamento, pilotAeronau, edad_piloto, mecanics, idNave, nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
             /***
              * Persistimos el objeto Mecanic i devolvemos el objeto.

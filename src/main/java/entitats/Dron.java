@@ -15,7 +15,6 @@ import java.util.List;
  * TesteableEntity
  */
 @Entity
-@Table(name="dron")
 public class Dron extends Autonoma implements interficies.TesteableEntity, Serializable {
 
     private Date fechaProximoMantimiento;

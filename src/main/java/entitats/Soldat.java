@@ -18,7 +18,6 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
-@Table(name="soldat")
 public abstract class Soldat implements Serializable{
     
     @Id

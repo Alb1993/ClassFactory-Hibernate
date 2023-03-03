@@ -11,7 +11,6 @@ import java.util.List;
  * @author FPShare
  */
 @Entity
-@Table(name="autonoma")
 public abstract class Autonoma extends Aeronau implements Serializable{
 
 

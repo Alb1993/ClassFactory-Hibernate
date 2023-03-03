@@ -20,7 +20,6 @@ import java.util.List;
  * inferiores.
  */
 @Entity
-@Table(name="aeronau")
 public abstract class Aeronau implements Serializable{
 
     @Id
@@ -28,19 +27,14 @@ public abstract class Aeronau implements Serializable{
     @Column(name = "idNave", nullable = false, unique = true)
     protected int idNave;
     
-    @Column(name = "nombreNave")
     protected String nombreNave;
     
-    @Column(name = "kmrecorridos")
     protected float kmRecorridos;
     
-    @Column(name = "fechaconstruccion")
     protected Date fechaConstruccion;
     
-    @Column(name = "operativa")
     protected boolean operativa;
     
-    @Column(name = "estado")
     protected int estado;
     
     @OneToMany

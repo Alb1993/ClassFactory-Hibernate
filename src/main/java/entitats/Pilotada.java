@@ -17,9 +17,8 @@ import java.sql.Date;
  * Aeronave.
  */
 @Entity
-@Table(name="pilotada")
 public abstract class Pilotada extends Aeronau {
-    @Column(name="edad_piloto")
+    
     private int edad_piloto;
     
     @OneToOne

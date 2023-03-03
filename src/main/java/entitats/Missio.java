@@ -20,11 +20,10 @@ import java.util.List;
  * TesteableEntity.
  */
 @Entity
-@Table(name="missio")
 public class Missio implements interficies.TesteableEntity, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idMision", nullable = false, unique = true)
+    @Column(name = "idmision", nullable = false, unique = true)
     private int idMision;
     
     private String tituloMision;
