@@ -23,12 +23,14 @@ import java.util.Random;
  * @author FPShare
  */
 public class ClassFactory implements TesteableFactory {
+    
     /***
     * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de Soldados a rellenar.
     */
     private static Faker faker = new Faker();
     private static Random rand = new Random();
     
+    public ClassFactory(){};
     
     @Override
     public Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) throws Exception {
