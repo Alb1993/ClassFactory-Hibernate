@@ -1,6 +1,7 @@
 package entitats;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
