@@ -1,12 +1,10 @@
 package entitats;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.ArrayList;
 import java.sql.Date;
-import java.util.List;
 
 /**
  *
