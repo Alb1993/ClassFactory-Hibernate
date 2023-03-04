@@ -43,7 +43,7 @@ public class ClassFactory implements TesteableFactory {
             mecanics.add((Mecanic) soldat);
         }
         p.setMecanics(mecanics);
-        return (Aeronau) p;
+        return p;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class ClassFactory implements TesteableFactory {
          * Instanciamos 2 objetos: Faker, Random y la Lista de Soldados a
          * rellenar.
          */
-        List<Soldat> mecanics = null;
+        List<Soldat> mecanics = new ArrayList<>();
         /**
          * Generamos atributos random, los añadimos a un objeto mecanico y
          * despues añadimos el mecanico a nuestro Array de Soldados.
