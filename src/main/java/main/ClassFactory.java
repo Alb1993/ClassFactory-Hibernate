@@ -48,16 +48,24 @@ public class ClassFactory implements TesteableFactory {
 
     @Override
     public Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) throws Exception {
-        //Añadimos una lista de Misiones a una aeronave.
-        a.setMissions(lm);
+        if (lm.size() > 2) {
+             throw new Exception("Una aeronave no puede tener mas de 2 misiones");
+        }else{
+            //Añadimos una lista de Misiones a una aeronave.
+            a.setMissions(lm);
+        }
         //Devolvemos la aeronave.
         return a;
     }
 
     @Override
     public Missio addAeronausToMissio(List<Aeronau> la, Missio m) throws Exception {
-        //Añadimos las Aeronaves a una Mision.
-        m.setAeronaus(la);
+        if (la.size() > 8 ) {
+            throw new Exception("Una mision no puede tener mas de 8 aeronaves");
+        } else{
+            //Añadimos las Aeronaves a una Mision.
+            m.setAeronaus(la);
+        }
         //Devolvemos la mision.
         return m;
     }
