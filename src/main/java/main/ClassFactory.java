@@ -33,11 +33,11 @@ public class ClassFactory implements TesteableFactory {
     public ClassFactory() {
     }
 
-    ;
+    
     
     @Override
     public Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) throws Exception {
-        ArrayList<Mecanic> mecanics = new ArrayList<>();
+        List<Mecanic> mecanics = new ArrayList<>();
 
         for (Soldat soldat : lo) {
                 mecanics.add((Mecanic) soldat);

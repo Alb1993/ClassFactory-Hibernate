@@ -5,6 +5,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.List;
 
 
 /**
@@ -23,9 +24,9 @@ public abstract class Pilotada extends Aeronau {
     @OneToOne
     private Pilot pilotAeronau;
     @OneToMany
-    private ArrayList<Mecanic> mecanics;
+    private List<Mecanic> mecanics;
 
-    public Pilotada(Pilot pilotAeronau, int edad_piloto, ArrayList<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
+    public Pilotada(Pilot pilotAeronau, int edad_piloto, List<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {
         super(nombreNave, kmRecorridos, fechaConstruccion, operativa, estado, missions);
         this.pilotAeronau = pilotAeronau;
         this.edad_piloto = edad_piloto;
@@ -48,11 +49,11 @@ public abstract class Pilotada extends Aeronau {
         this.edad_piloto = edad_piloto;
     }
 
-    public ArrayList<Mecanic> getMecanics() {
+    public List<Mecanic> getMecanics() {
         return mecanics;
     }
 
-    public void setMecanics(ArrayList<Mecanic> mecanics) {
+    public void setMecanics(List<Mecanic> mecanics) {
         this.mecanics = mecanics;
     }
 
