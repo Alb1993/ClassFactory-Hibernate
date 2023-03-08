@@ -44,7 +44,12 @@ public class ClassFactory implements TesteableFactory {
                 mecanics.add((Mecanic) soldat);
             }
         }
-        p.setMecanics(mecanics);
+        if (mecanics.size() > 2) {
+            throw new Exception("Una aeronave pilotada no puede tener mas de 2 mecanicos");
+        } else {
+            p.setMecanics(mecanics);
+        }
+
         return p;
     }
 
