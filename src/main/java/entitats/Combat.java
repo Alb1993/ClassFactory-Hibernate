@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * extiende de la clase pilotada y implementa la interficie de TesteableEntity.
  */
 @Entity
-@Table
+//@Table
 public class Combat extends Pilotada implements interficies.TesteableEntity, Serializable {
     
     private float versionArmamento;

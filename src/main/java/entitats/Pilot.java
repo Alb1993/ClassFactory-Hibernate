@@ -10,7 +10,7 @@ import java.sql.Date;
  * @author FPShare
  */
 @Entity
-@Table
+//@Table
 public class Pilot extends Soldat implements interficies.TesteableEntity,Serializable {
 
     private String clavePiloto;

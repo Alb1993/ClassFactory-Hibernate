@@ -40,7 +40,9 @@ public class ClassFactory implements TesteableFactory {
         ArrayList<Mecanic> mecanics = new ArrayList<>();
 
         for (Soldat soldat : lo) {
-            mecanics.add((Mecanic) soldat);
+            if (lo.size() > 2) {
+                mecanics.add((Mecanic) soldat);
+            }
         }
         p.setMecanics(mecanics);
         return p;
@@ -49,8 +51,8 @@ public class ClassFactory implements TesteableFactory {
     @Override
     public Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) throws Exception {
         if (lm.size() > 2) {
-             throw new Exception("Una aeronave no puede tener mas de 2 misiones");
-        }else{
+            throw new Exception("Una aeronave no puede tener mas de 2 misiones");
+        } else {
             //Añadimos una lista de Misiones a una aeronave.
             a.setMissions(lm);
         }
@@ -60,9 +62,9 @@ public class ClassFactory implements TesteableFactory {
 
     @Override
     public Missio addAeronausToMissio(List<Aeronau> la, Missio m) throws Exception {
-        if (la.size() > 8 ) {
+        if (la.size() > 8) {
             throw new Exception("Una mision no puede tener mas de 8 aeronaves");
-        } else{
+        } else {
             //Añadimos las Aeronaves a una Mision.
             m.setAeronaus(la);
         }
