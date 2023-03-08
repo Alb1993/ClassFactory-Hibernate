@@ -1,15 +1,8 @@
 package main;
 
-import com.github.javafaker.Faker;
-import jakarta.persistence.Query;
-import java.sql.Date;
-import java.util.List;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.exception.ConstraintViolationException;
 
 
 /**
@@ -19,7 +12,6 @@ import org.hibernate.exception.ConstraintViolationException;
 public class M06UF2PracMD {
 
     private static final Scanner IN = new Scanner(System.in);
-    private static Session session;
     private static final Logger logger = LogManager.getLogger(M06UF2PracMD.class);
 
     public static void main(String[] args) {
@@ -46,32 +38,38 @@ public class M06UF2PracMD {
         
         switch (opcionUser) {
             case 1: {
-                System.out.println("");
+                datos.CrearRegistros.crearCombate(cantidad);
+                menuPrincipal();
 
             }
 
             case 2: {
-                System.out.println("");
+                datos.CrearRegistros.crearTransporte(cantidad);
+                menuPrincipal();
 
             }
 
             case 3: {
-                System.out.println("");
+                datos.CrearRegistros.crearDron(cantidad);
+                menuPrincipal();
 
             }
 
             case 4: {
-                System.out.println("");
+                datos.CrearRegistros.crearMecanico(cantidad);
+                menuPrincipal();
 
             }
 
             case 5: {
-                System.out.println("");
+                datos.CrearRegistros.crearPiloto(cantidad);
+                menuPrincipal();
 
             }
 
             case 6: {
-                System.out.println("");
+                datos.CrearRegistros.crearMision(cantidad);
+                menuPrincipal();
 
             }
         }
@@ -208,6 +206,7 @@ public class M06UF2PracMD {
             menuPrincipal();
             
             case 4: {
+                logger.info(" ======= Nos vemos!!! =======");
                 System.exit(0);
             }
         }
