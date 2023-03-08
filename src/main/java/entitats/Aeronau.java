@@ -40,7 +40,7 @@ public abstract class Aeronau implements Serializable{
     
     protected int estado;
     
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "aeronaus", cascade = {CascadeType.ALL})
     protected List<Missio> missions;
 
     public Aeronau(String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, List<Missio> missions) {
