@@ -23,7 +23,7 @@ public abstract class Pilotada extends Aeronau {
     
     @OneToOne
     private Pilot pilotAeronau;
-    @OneToMany
+    @OneToMany(mappedBy = "pilotadaMecanic")
     private List<Mecanic> mecanics;
 
     public Pilotada(Pilot pilotAeronau, int edad_piloto, List<Mecanic> mecanics, String nombreNave, float kmRecorridos, Date fechaConstruccion, boolean operativa, int estado, ArrayList<Missio> missions) {

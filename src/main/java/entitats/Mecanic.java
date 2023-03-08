@@ -1,6 +1,7 @@
 package entitats;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
@@ -16,7 +17,8 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
     private String claveMecanico;
     private float versionHerramientas;
     private int navesReparadas;
-    
+    @ManyToOne
+    private Pilotada pilotadaMecanic;
 
     public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas,int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         super(edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
