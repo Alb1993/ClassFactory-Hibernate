@@ -25,7 +25,7 @@ import java.util.List;
  * TesteableEntity.
  */
 @Entity
-@Table
+//@Table
 public class Missio implements interficies.TesteableEntity, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

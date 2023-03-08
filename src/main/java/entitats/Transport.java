@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author FPShare
  */
 @Entity
-@Table
+//@Table
 public class Transport extends Pilotada implements interficies.TesteableEntity, Serializable {
 
     private float pesoCarga;
