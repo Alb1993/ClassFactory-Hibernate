@@ -40,9 +40,7 @@ public class ClassFactory implements TesteableFactory {
         ArrayList<Mecanic> mecanics = new ArrayList<>();
 
         for (Soldat soldat : lo) {
-            if (lo.size() > 2) {
                 mecanics.add((Mecanic) soldat);
-            }
         }
         if (mecanics.size() > 2) {
             throw new Exception("Una aeronave pilotada no puede tener mas de 2 mecanicos");
