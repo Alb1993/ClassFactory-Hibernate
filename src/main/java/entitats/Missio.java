@@ -143,4 +143,9 @@ public class Missio implements interficies.TesteableEntity, Serializable {
         this.completada = b;
     }
 
+    @Override
+    public String toString() {
+        return "Missio{" + "idMision=" + idMision + ", tituloMision=" + tituloMision + ", descripcion=" + descripcion + ", recompensa=" + recompensa + ", fechaPublicacion=" + fechaPublicacion + ", completada=" + completada + ", aeronaus=" + aeronaus + '}';
+    }
+    
 }

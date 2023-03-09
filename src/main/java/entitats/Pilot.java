@@ -87,4 +87,11 @@ public class Pilot extends Soldat implements interficies.TesteableEntity,Seriali
         this.operativo = b;
     }
 
+    @Override
+    public String toString() {
+        return "Pilot{"+ "idSoldado= "+ idSoldado+ " , nombreClave="+ nombreClave + " , operativo=" + operativo + " , fechaAlistamiento=" + fechaAlistamiento + " , versionTransmisor=" + versionTransmisor + ", clavePiloto=" + clavePiloto + ", distanciaPilotadaKM=" + distanciaPilotadaKM + '}';
+    }
+    
+    
+
 }

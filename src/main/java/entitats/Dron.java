@@ -98,4 +98,11 @@ public class Dron extends Autonoma implements interficies.TesteableEntity, Seria
         this.operativa = b;
     }
 
+    @Override
+    public String toString() {
+        return "Dron{" + "idNave="+ idNave + " , nombreNave="+ nombreNave + " , kmRecorridos="+ kmRecorridos + " , fechaConstruccion="+ fechaConstruccion + " , operativa="+ operativa + " , fechaProximoMantimiento=" + fechaProximoMantimiento + ", tieneArmas=" + tieneArmas + ", tipoDeDron=" + tipoDeDron + '}';
+    }
+    
+    
+
 }

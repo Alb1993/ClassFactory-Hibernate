@@ -12,7 +12,7 @@ import java.sql.Date;
  */
 @Entity
 //@Table
-public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable{
+public class Mecanic extends Soldat implements interficies.TesteableEntity, Serializable {
 
     private String claveMecanico;
     private float versionHerramientas;
@@ -20,14 +20,13 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
     @ManyToOne
     private Pilotada pilotadaMecanic;
 
-    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas,int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
+    public Mecanic(String claveMecanico, float versionHerramientas, int navesReparadas, int edad, String nombreClave, float versionTransmisor, Date fechaAlistamiento, boolean operativo) {
         super(edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
         this.claveMecanico = claveMecanico;
         this.versionHerramientas = versionHerramientas;
         this.navesReparadas = navesReparadas;
     }
-    
-    
+
     public String getClaveMecanico() {
         return claveMecanico;
     }
@@ -95,6 +94,11 @@ public class Mecanic extends Soldat implements interficies.TesteableEntity, Seri
     @Override
     public void setAtributBoolean(Boolean b) {
         this.operativo = b;
+    }
+
+    @Override
+    public String toString() {
+        return "Mecanic{" + "idSoldado=" + idSoldado + " , nombreClave=" + nombreClave + " , operativo=" + operativo + " , fechaAlistamiento=" + fechaAlistamiento + " , claveMecanico=" + claveMecanico + ", versionHerramientas=" + versionHerramientas + ", navesReparadas=" + navesReparadas + '}';
     }
 
 }

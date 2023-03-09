@@ -74,4 +74,11 @@ public class Transport extends Pilotada implements interficies.TesteableEntity, 
         this.operativa = b;
     }
 
+    @Override
+    public String toString() {
+        return "Transport{" + "idNave="+ idNave+ " nombreNave="+ nombreNave + " kmRecorridos="+ kmRecorridos+ " fechaConstruccion= "+ fechaConstruccion + " operativa=" + operativa +" pesoCarga=" + pesoCarga + + '}';
+    }
+    
+    
+
 }

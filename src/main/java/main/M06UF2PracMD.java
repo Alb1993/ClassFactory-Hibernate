@@ -1,5 +1,12 @@
 package main;
 
+import entitats.Combat;
+import entitats.Dron;
+import entitats.Mecanic;
+import entitats.Missio;
+import entitats.Pilot;
+import entitats.Transport;
+import java.util.List;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -123,37 +130,89 @@ public class M06UF2PracMD {
         System.out.println("--------------------------------------");
         System.out.println("¿Que deseas listar?");
         System.out.println("");
-
+        
         int opcionUser = objetoSeleccionado();
         
+        System.out.println("Indica el identificador inicial:");
+        int indicadorIni = IN.nextInt();
+        
+        System.out.println("Indica el identificador final:");
+        int indicadorFi = IN.nextInt();
+
         switch (opcionUser) {
             case 1: {
-                System.out.println("");
+                List<Combat> combates = datos.ListarRegistros.ListarCombat(indicadorIni, indicadorFi);
+                
+            for (Combat combate : combates) {
+                
+                System.out.println(combate.toString());
+            }
+                menuPrincipal();
 
             }
 
             case 2: {
-                System.out.println("");
+                
+                 List<Transport> transports = datos.ListarRegistros.ListarTrasnport(indicadorIni, indicadorFi);
+                 
+                  for (Transport transport : transports) {
+                
+                        System.out.println(transport.toString());
+                    }
+                
+                menuPrincipal();
 
             }
 
             case 3: {
-                System.out.println("");
+                
+                 List<Dron> drons = datos.ListarRegistros.ListarDrons(indicadorIni, indicadorFi);
+                 
+                  for (Dron dron : drons) {
+                
+                        System.out.println(dron.toString());
+                    }
+                
+               menuPrincipal();
 
             }
 
             case 4: {
-                System.out.println("");
+                
+                 List<Mecanic> mecanics = datos.ListarRegistros.ListarMecanics(indicadorIni, indicadorFi);
+                 
+                  for (Mecanic mecanic : mecanics) {
+                
+                        System.out.println(mecanic.toString());
+                    }
+                
+                menuPrincipal();
 
             }
 
             case 5: {
-                System.out.println("");
+                
+                  List<Pilot> pilots = datos.ListarRegistros.ListarPilots(indicadorIni, indicadorFi);
+                 
+                  for (Pilot pilot : pilots) {
+                
+                        System.out.println(pilot.toString());
+                    }
+                
+                 menuPrincipal();
 
             }
 
             case 6: {
-                System.out.println("");
+                
+                List<Missio> missions = datos.ListarRegistros.ListarMissions(indicadorIni, indicadorFi);
+                 
+                  for (Missio missio : missions) {
+                
+                        System.out.println(missio.toString());
+                    }
+                
+                 menuPrincipal();
 
             }
         }

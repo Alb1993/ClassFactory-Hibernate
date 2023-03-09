@@ -79,4 +79,11 @@ public class Combat extends Pilotada implements interficies.TesteableEntity, Ser
         this.operativa = b;
     }
 
+    @Override
+    public String toString() {
+        return "Combat{" + "versionArmamento=" + versionArmamento + " idNave=" +  idNave + " nombreNave=" + nombreNave+ " kmRecorridos=" +kmRecorridos + " fechaConstruccion="+ fechaConstruccion + " operativa=" + operativa +'}';
+    }
+    
+    
+
 }
