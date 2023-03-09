@@ -3,7 +3,7 @@ package main;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import org.hibernate.SessionFactory;
 
 /**
  * @version 1.0
@@ -30,12 +30,12 @@ public class M06UF2PracMD {
         System.out.println("--------------------------------------");
         System.out.println("¿Que deseas crear?");
         System.out.println("");
-        
+
         System.out.println("¿Cuantos quieres crear?");
         int cantidad = IN.nextInt();
 
         int opcionUser = objetoSeleccionado();
-        
+
         switch (opcionUser) {
             case 1: {
                 datos.CrearRegistros.crearCombate(cantidad);
@@ -82,36 +82,47 @@ public class M06UF2PracMD {
         System.out.println("");
 
         int opcionUser = objetoSeleccionado();
+
+        System.out.println("Dime un id inicial para empezar a elminar");
+        int idInicial = IN.nextInt();
+        System.out.println("Ahora dime un numero para ponelo como rango final");
+        int idFinal = IN.nextInt();
         
         switch (opcionUser) {
             case 1: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarCombate(idInicial, idFinal);
+                System.out.println("Combates eliminado correctamente");
+                menuPrincipal();
             }
 
             case 2: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarTransporte(idInicial, idFinal);
+                System.out.println("Transportes eliminado correctamente");
+                menuPrincipal();
             }
 
             case 3: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarDron(idInicial, idFinal);
+                System.out.println("Drones eliminado correctamente");
+                menuPrincipal();
             }
 
             case 4: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarMecanico(idInicial, idFinal);
+                System.out.println("Mecanicos eliminado correctamente");
+                menuPrincipal();
             }
 
             case 5: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarPiloto(idInicial, idFinal);
+                System.out.println("Pilotos eliminado correctamente");
+                menuPrincipal();
             }
 
             case 6: {
-                System.out.println("");
-
+                datos.EliminarRegistros.eliminarMision(idInicial, idFinal);
+                System.out.println("Misiones eliminado correctamente");
+                menuPrincipal();
             }
         }
     }
@@ -123,7 +134,7 @@ public class M06UF2PracMD {
         System.out.println("");
 
         int opcionUser = objetoSeleccionado();
-        
+
         switch (opcionUser) {
             case 1: {
                 System.out.println("");
@@ -167,7 +178,7 @@ public class M06UF2PracMD {
         System.out.println("6. Misión");
 
         int opcionUser = IN.nextInt();
-        
+
         return opcionUser;
     }
 
@@ -188,23 +199,23 @@ public class M06UF2PracMD {
                 System.out.println("");
                 creacionObjetos();
             }
-            
+
             menuPrincipal();
 
             case 2: {
                 System.out.println("");
                 eliminacionObjetos();
             }
-            
+
             menuPrincipal();
 
             case 3: {
                 System.out.println("");
                 listadoObjetos();
             }
-            
+
             menuPrincipal();
-            
+
             case 4: {
                 logger.info(" ======= Nos vemos!!! =======");
                 System.exit(0);
