@@ -24,7 +24,7 @@ public class ClassFactory implements TesteableFactory {
 
     /**
      *
-     * Instanciamos 3 objetos: Faker, Random, SingleSession y la Lista de
+     * Instanciamos 2 objetos: Faker, Random y la Lista de
      * Soldados a rellenar.
      */
     private final Faker FAKER = new Faker();
@@ -87,7 +87,7 @@ public class ClassFactory implements TesteableFactory {
         // Aeronave
         String nombreNave = FAKER.bothify("####") + "-" + FAKER.letterify("#####") + "-" + FAKER.numerify("#####");
         float kmRecorridos = FAKER.number().randomNumber();
-        Date fechaConstruccion = utils.convertirSqlDate(FAKER.date().birthday());
+        Date fechaConstruccion = Utils.convertirSqlDate(FAKER.date().birthday());
         boolean operativa = RAND.nextBoolean();
         int estado = FAKER.number().numberBetween(1, 100);
         ArrayList<Missio> missions = null;
@@ -133,7 +133,7 @@ public class ClassFactory implements TesteableFactory {
             int edad = FAKER.number().numberBetween(16, 65);
             String nombre = FAKER.name().firstName();
             float versionTransmisor = FAKER.number().randomNumber();
-            Date fechaAlistamiento = utils.convertirSqlDate(FAKER.date().birthday());
+            Date fechaAlistamiento = Utils.convertirSqlDate(FAKER.date().birthday());
             boolean operativo = RAND.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas, navesReparadas, edad, nombre, versionTransmisor, fechaAlistamiento, operativo);
             mecanics.add(mecanic);
@@ -150,7 +150,7 @@ public class ClassFactory implements TesteableFactory {
         String tituloMision = FAKER.job().title();
         String descripcion = FAKER.gameOfThrones().quote();
         float recompensa = FAKER.number().randomNumber();
-        Date fechaPublicacion = utils.convertirSqlDate(FAKER.date().birthday());
+        Date fechaPublicacion = Utils.convertirSqlDate(FAKER.date().birthday());
         boolean completada = RAND.nextBoolean();
         List<Aeronau> aeronaus = null;
         Missio missio = new Missio(tituloMision, descripcion, recompensa, fechaPublicacion, completada, aeronaus);
@@ -191,7 +191,7 @@ public class ClassFactory implements TesteableFactory {
             int edad = FAKER.number().numberBetween(16, 65);
             String nombre = FAKER.name().firstName();
             float versionTransmisor = FAKER.number().randomNumber();
-            Date fechaAlistamiento = utils.convertirSqlDate(FAKER.date().birthday());
+            Date fechaAlistamiento = Utils.convertirSqlDate(FAKER.date().birthday());
             boolean operativo = RAND.nextBoolean();
             Mecanic mecanic = new Mecanic(claveMecanico, versionHerramientas, navesReparadas, edad, nombre, versionTransmisor, fechaAlistamiento, operativo);
             /**
@@ -208,7 +208,7 @@ public class ClassFactory implements TesteableFactory {
             int edad = FAKER.number().numberBetween(16, 65);
             String nombreClave = FAKER.bothify("####") + "-" + FAKER.letterify("#####") + "-" + FAKER.numerify("#####");
             float versionTransmisor = FAKER.number().randomNumber();
-            Date fechaAlistamiento = utils.convertirSqlDate(FAKER.date().birthday());
+            Date fechaAlistamiento = Utils.convertirSqlDate(FAKER.date().birthday());
             boolean operativo = RAND.nextBoolean();
             Pilot pilot = new Pilot(clavePiloto, distanciaPilotadaKM, edad, nombreClave, versionTransmisor, fechaAlistamiento, operativo);
             /**

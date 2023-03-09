@@ -10,13 +10,14 @@ import java.util.List;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 
 
 /**
  * @version 1.0
  * @author FPShare
+ * 
+ * Clase que contiene el menú de usuario para trabajar sobre la BBDD
  */
 public class M06UF2PracMD {
     static Session session;
@@ -35,6 +36,7 @@ public class M06UF2PracMD {
         menuPrincipal();
     }
 
+    // Función para la creación de registros
     public static void creacionObjetos() {
         logger.info(" ======= Crear registros =======");
         System.out.println("--------------------------------------");
@@ -85,6 +87,7 @@ public class M06UF2PracMD {
         }
     }
 
+    // Función para la eliminación de registros
     public static void eliminacionObjetos() {
         logger.info(" ======= Eliminar registros =======");
         System.out.println("--------------------------------------");
@@ -137,6 +140,7 @@ public class M06UF2PracMD {
         }
     }
 
+    // Función para listar los registros de la BBDD
     public static void listadoObjetos() {
         logger.info(" ======= Listar registros =======");
         System.out.println("--------------------------------------");
@@ -230,6 +234,7 @@ public class M06UF2PracMD {
         }
     }
 
+    // Función de seleccionado de objeto por parte del usuario
     public static int objetoSeleccionado() {
 
         System.out.println("1. Aeronave de Combate");
@@ -244,6 +249,7 @@ public class M06UF2PracMD {
         return opcionUser;
     }
 
+    // Función de selección principal
     public static void menuPrincipal() {
 
         System.out.println("Bienvenido usuario, ¿Qué deseas hacer?");
