@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.Session;
 
 
 /**
@@ -10,18 +11,19 @@ import org.apache.logging.log4j.Logger;
  * @author FPShare
  */
 public class M06UF2PracMD {
-
+    static Session session;
     private static final Scanner IN = new Scanner(System.in);
     private static final Logger logger = LogManager.getLogger(M06UF2PracMD.class);
 
     public static void main(String[] args) {
+        //session = SingleSession.getInstance().getSessio();
         System.out.print("Introduce el nombre de la base de datos (si no tienes, deja en blanco este campo y se te creará una nueva): ");
         String nombreBD = IN.nextLine();
         System.out.print("Introduce tu usuario: ");
         String user = IN.nextLine();
         System.out.print("Introduce la contraseña: ");
         String password = IN.nextLine();
-
+        session = SingleSession.getInstance().sessionConfig(nombreBD, user, password);
         menuPrincipal();
     }
 
